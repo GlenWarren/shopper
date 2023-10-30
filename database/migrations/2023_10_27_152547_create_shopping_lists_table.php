@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\ShoppingList\Status;
 
 return new class extends Migration
 {
@@ -15,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
-            $table->enum('status', ['active', 'archived', 'completed'])->default('active');
+            $table->enum('status', [Status::ACTIVE, Status::ARCHIVED, Status::COMPLETE])->default(Status::ACTIVE);
             $table->unsignedInteger('limit')->nullable();
             $table->timestamps();
         });

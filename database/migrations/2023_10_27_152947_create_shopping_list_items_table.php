@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\ShoppingListItem\Status;
 
 return new class extends Migration
 {
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->foreignId('item_id');
             $table->unsignedInteger('position');
             $table->unsignedInteger('quantity')->default(1);
-            $table->enum('status', ['active', 'incomplete', 'completed'])->default('active');
+            $table->enum('status', [Status::ACTIVE, Status::INCOMPLETE, Status::COMPLETE])->default(Status::ACTIVE);
             $table->timestamps();
             $table->unique(['shopping_list_id','item_id'], 'shopping_list_item_index');
             $table->unique(['shopping_list_id', 'position'], 'shopping_list_item_position_unique');

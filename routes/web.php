@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShoppingListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/shopping_lists', [ShoppingListController::class, 'index']);
+Route::get('/shopping_list', [ShoppingListController::class, 'show']);
+Route::get('/create_shopping_list', [ShoppingListController::class, 'create']);
+Route::post('/shopping_list', [ShoppingListController::class, 'store']);
