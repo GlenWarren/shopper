@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\User;
+use App\Models\Item;
 
 class ShoppingListItem extends Model
 {
@@ -16,10 +16,8 @@ class ShoppingListItem extends Model
         'status'
     ];
 
-    // TODO: add constraints for position and quantity columns
-
-    // public function user(): BelongsTo
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    public function item(): BelongsTo
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

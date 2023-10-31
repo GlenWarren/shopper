@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->enum('status', [Status::ACTIVE, Status::ARCHIVED, Status::COMPLETE])->default(Status::ACTIVE);
-            $table->unsignedInteger('limit')->nullable();
+            $table->float('limit')->nullable();
             $table->timestamps();
         });
     }

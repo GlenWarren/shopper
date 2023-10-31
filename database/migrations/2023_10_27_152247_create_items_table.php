@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
-            $table->float('price');
-            $table->boolean('favourite');
+            $table->float('price')->default(0.00);
+            $table->boolean('favourite')->default(0);
             $table->timestamps();
-            $table->unique(['user_id','name'], 'user_id_item_name_index');
         });
     }
 

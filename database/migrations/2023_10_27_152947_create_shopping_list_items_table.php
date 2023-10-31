@@ -21,7 +21,6 @@ return new class extends Migration
             $table->enum('status', [Status::ACTIVE, Status::INCOMPLETE, Status::COMPLETE])->default(Status::ACTIVE);
             $table->timestamps();
             $table->unique(['shopping_list_id','item_id'], 'shopping_list_item_index');
-            $table->unique(['shopping_list_id', 'position'], 'shopping_list_item_position_unique');
         });
     }
 
