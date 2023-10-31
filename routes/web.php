@@ -16,7 +16,8 @@ use App\Http\Controllers\ShoppingListItemController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect()->route('shopping_lists.index');
 });
 
 Route::get('/shopping-lists', [ShoppingListController::class, 'index'])->name('shopping_lists.index');
