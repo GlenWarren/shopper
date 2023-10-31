@@ -74,17 +74,7 @@ class ShoppingListController extends Controller
 
     public function update(Request $request)
     {
-        $validated_data = $request->validate([
-            'name' => 'required|string|max:255',
-            'limit' => 'nullable|numeric',
-        ]);
-
-        $shopping_list = new ShoppingList;
-        $shopping_list->name = $validated_data['name'];
-        $shopping_list->limit = $validated_data['limit'];
-        $shopping_list->save();
-
-        return redirect()->route('shopping_lists.edit', ['shopping_list' => $shopping_list->id])->with('success', 'Shopping list updated');
+        // TODO: enable update of shopping list name and limit
     }
 
     public function destroy(int $id)
