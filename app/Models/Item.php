@@ -19,9 +19,4 @@ class Item extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    // public function shoppingList(): BelongsTo
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
 }
