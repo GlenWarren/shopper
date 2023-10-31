@@ -42,7 +42,7 @@ class ShoppingListItemController extends Controller
 
     public function toggleStatus(Request $request, int $id)
     {
-        // TODO: amend the status of the item
+        // TODO: amend the status of the item (enable user to cross an item off the list)
     }
 
     public function destroy(Request $request, int $id)

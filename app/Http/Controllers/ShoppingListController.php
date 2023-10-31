@@ -32,6 +32,8 @@ class ShoppingListController extends Controller
 
         // TODO: calculate total price to display to user
 
+        // TODO: enable user to share shopping list via email
+
         return view('shopping_lists.show', ['shopping_list' => $shopping_list, 'current_items' => $current_items]);
     }
 
@@ -50,7 +52,6 @@ class ShoppingListController extends Controller
         ]);
 
         $shopping_list = new ShoppingList;
-
         $shopping_list->user_id = 1; // TODO: use the current user instead: auth()->user()->id;
         $shopping_list->name = $validated_data['name'];
         $shopping_list->limit = $validated_data['limit'];
@@ -65,16 +66,18 @@ class ShoppingListController extends Controller
         $shopping_list = ShoppingList::find($id);
         $current_items = $shopping_list->items()->get();
 
-        // TODO: enable user to select favourites or from stored items
+        // TODO: Calculate total price to display to user
 
-        // TODO: calculate total price to display to user
+        // TODO: Alert user if they have gone over the shopping list limit
+
+        // TODO: (bonus) Enable user to select favourites or from previous/stored items
 
         return view('shopping_lists.edit', ['shopping_list' => $shopping_list, 'current_items' => $current_items]);
     }
 
     public function update(Request $request)
     {
-        // TODO: enable update of shopping list name and limit
+        // TODO: enable update of shopping list name, limit or status
     }
 
     public function destroy(int $id)
